@@ -26,7 +26,9 @@ class UserController extends Controller
 
         $i = 1;
         $uname = $request->input('user','');
-        $tp_data = tp_admin_users::where('admin_name','like','%'.$uname.'%')->paginate($count);
+        $tp_data = tp_admin_users::where('admin_name','like','%'.$uname.'%')
+        ->orderBy('id','desc')
+        ->paginate($count);
 
         return view('admin.users.index',['data'=>$tp_data,'i'=>$i,'request'=>$request->all() or ""]);
     }
@@ -107,7 +109,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-            echo 1;
+
     }
 
     /**
@@ -118,7 +120,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-            echo $id;
+            $data = tp_admin_users::find($id);
+            $date = tp_admin_user_infos::where('uid',$id)->first();
+
+            return view('admin.users.edit',['data'=>$data,'date'=>$date]);
 
     }
 
@@ -131,9 +136,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        echo 3;
-        //
+        DB::beginTransaction();
+        //修改
+        $data_edit = tp_admin_users::find($id);
+        $data_edit->admin_email = $request->input('admin_email','');
+        $data_edit->admin_phon = $request->input('admin_phon','');
+        $res = $data_edit->save();
+
+        $res1 = tp_admin_user_infos::where('uid',$id)->update(['admin_text'=>$request->input('admin_itn','')]);
+
+        if ($res && $res1 == true) {
+            DB::commit();
+
+            return redirect('admin/user')->with('success','修改成功');
+        }else{
+            echo "提交失败";
+            DB::rollBack();
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -144,8 +164,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
-        echo 4   ;
-        //
+        //$url = $_SERVER['HTTP_REFERER'];
+        $detele = tp_admin_users::destroy($id);
+        $deteles = tp_admin_user_infos::where('uid',$id)->delete();
+
+        if($detele && $deteles ==true){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        }else{
+             DB::rollBack();
+             return redirect($_SERVER['HTTP_REFERER'])->with('success','删除失败');;
+        }
+
+
+
     }
 }

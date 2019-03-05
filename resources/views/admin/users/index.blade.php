@@ -48,7 +48,7 @@
 
                               @foreach($data as $key=>$value)
                               <tr>
-                                  <td>{{$i++}}</td>
+                                  <td>{{$value->id}}</td>
                                   <td>{{$value->admin_name}}</td>
                                   <td>{{$value->admin_phon}}</td>
                                   <td>
@@ -67,7 +67,13 @@
                                   <td>
 
                                       <a href="/admin/user/{{$value->id}}/edit" class="btn btn-primary" role="button"><i class="fa fa-pencil"></i></a>
-                                      <a href="" class="btn btn-danger" role="button"><i class="fa fa-trash-o"></i></a>
+
+                                      <form action="/admin/user/{{$value->id}}" method="post" style="display: inline-block;">
+                                         {{ csrf_field()}}
+                                        {{ method_field('DELETE')}}
+                                        <input type="submit"  value="删除"  class="btn btn-danger">
+                                      </form>
+
                                   </td>
                               </tr>
                               @endforeach

@@ -5,7 +5,7 @@
 
               <div class="row">
                   <div class="col-lg-9 main-chart">
-                  
+
                     <div class="row mtbox">
                       <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                         <div class="box1">
@@ -42,10 +42,10 @@
                         </div>
                   <p>服务器正常,请您放心使用!</p>
                       </div>
-                    
-                    </div><!-- /row mt -->  
-                  
-                      
+
+                    </div><!-- /row mt -->
+
+
                       <div class="row mt">
                       <!-- SERVER STATUS PANELS -->
                         <div class="col-md-4 col-sm-4 mb">
@@ -75,7 +75,7 @@
                 </script>
                           </div><! --/grey-panel -->
                         </div><!-- /col-md-4-->
-                        
+
 
                         <div class="col-md-4 col-sm-4 mb">
                           <div class="white-panel pn">
@@ -93,7 +93,7 @@
                             </div>
                           </div>
                         </div><!-- /col-md-4 -->
-                        
+
             <div class="col-md-4 mb">
               <!-- WHITE PANEL - TOP USER -->
               <div class="white-panel pn">
@@ -114,11 +114,11 @@
                 </div>
               </div>
             </div><!-- /col-md-4 -->
-                        
+
 
                     </div><!-- /row -->
-                    
-                            
+
+
           <div class="row">
             <!-- TWITTER PANEL -->
             <div class="col-md-4 mb">
@@ -151,8 +151,8 @@
                 </footer>
                           </div><! -- /darkblue panel -->
             </div><!-- /col-md-4 -->
-            
-            
+
+
             <div class="col-md-4 mb">
               <!-- INSTAGRAM PANEL -->
               <div class="instagram-panel pn">
@@ -163,7 +163,7 @@
                 <p><i class="fa fa-comment"></i> 18 | <i class="fa fa-heart"></i> 49</p>
               </div>
             </div><!-- /col-md-4 -->
-            
+
             <div class="col-md-4 col-sm-4 mb">
               <!-- REVENUE PANEL -->
               <div class="darkblue-panel pn">
@@ -176,9 +176,9 @@
                 <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
               </div>
             </div><!-- /col-md-4 -->
-            
+
           </div><!-- /row -->
-          
+
           <div class="row mt">
                       <!--CUSTOM CHART START -->
                       <div class="border-head">
@@ -223,19 +223,19 @@
                           </div>
                       </div>
                       <!--custom chart end-->
-          </div><!-- /row --> 
-          
+          </div><!-- /row -->
+
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                  
-                  
+
+
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-                  
+      *********************************************************************************************************************************************************** -->
+
                   <div class="col-lg-3 ds">
                     <!--COMPLETED ACTIONS DONUTS CHART-->
             <h3>处理投诉</h3>
-                                        
+
                       <!-- First Action -->
                       <div class="desc">
                         <div class="thumb">
@@ -382,7 +382,7 @@
                                 </div>
                             </div>
                         </div><!-- / calendar -->
-                      
+
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
           </section>
