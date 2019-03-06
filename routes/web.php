@@ -24,7 +24,7 @@ Route::get('admin/info',function(){
 });
 
 
-//登录页面
+//后台登录页面
 Route::get('admin/login','Admin\LoginController@index')->name('login');
 
 Route::group(['middleware'=>'login'],function(){
@@ -33,6 +33,9 @@ Route::group(['middleware'=>'login'],function(){
 
     //后台添加页面
     Route::resource('admin/user','Admin\UserController');
+
+    //退出登录
+    Route::any('admin/loutgin','Admin\LoginController@session');
 });
 
 //ajax验证后台登录路由
@@ -40,3 +43,8 @@ Route::any('admin/denglu','Admin\LoginController@login');
 
 //ajax验证后台登录路由(测试)
 Route::post('admin/deng','Admin\LoginController@deng');
+
+
+
+
+

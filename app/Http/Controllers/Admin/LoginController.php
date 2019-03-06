@@ -62,20 +62,19 @@ class LoginController extends Controller
         //session()->forget('admin_loginhai'); //删除某个值键
 
         //在session存入数组
-        session(['admin_login.'.$data => $pass]);
+        session(['admin_login.'.'1' => $pass,'admin_login.'.'2' => $data]);
 
         //判读session是否写入成功
         if(session()->exists('admin_login')){
             return redirect('admin');
         }
 
+    }
 
+    public function session(){
+        //session()->flush();
+        session()->forget('admin_login');
+        return redirect()->route('login');
 
-
-
-
-
-
-
-}
+    }
 }

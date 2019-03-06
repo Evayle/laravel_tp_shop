@@ -187,7 +187,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="/admin/loutgin">退出登录</a></li>
               </ul>
             </div>
         </header>
@@ -205,7 +205,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
 
                   <p class="centered"><a href="profile.html"><img src="/bg/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                  <h5 class="centered">11当前的用户名11</h5>
+                  <h5 class="centered" id="h5">{{session('admin_login.2')}}</h5>
 
                   <li class="mt">
                       <a class="active" href="/admin">
@@ -233,6 +233,8 @@
       <!-- 内容的开始 -->
 <section id="main-content">
       @section('content')
+
+
 
 
       @show
@@ -274,11 +276,13 @@
 
   <script type="text/javascript">
         $(document).ready(function () {
+          var a =  $("#h5").text();
+
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
-            title: '欢迎11用户名11',
+            title: a,
             // (string | mandatory) the text inside the notification
-            text: '您本次登录的是11time()11,您上次登录的地点是11地点11',
+            text: "欢迎您本次登录",
             // (string | optional) the image to display on the left
             image: '/bg/assets/img/ui-sam.jpg',//这里要和后台管理的用户头像关联起来
             // (bool | optional) if you want it to fade out on its own or just sit there
@@ -292,6 +296,5 @@
         return false;
         });
   </script>
-
   </body>
 </html>
