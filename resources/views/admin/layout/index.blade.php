@@ -207,6 +207,8 @@
                   <p class="centered"><a href="profile.html"><img src="/bg/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered" id="h5">{{session('admin_login.2')}}</h5>
 
+
+
                   <li class="mt">
                       <a class="active" href="/admin">
                           <i class="fa fa-dashboard"></i>
@@ -222,6 +224,17 @@
                       <ul class="sub">
                           <li><a  href="/admin/user">用户列表</a></li>
                           <li><a  href="/admin/user/create">用户添加</a></li>
+                          <li><a  href="panels.html">回收站</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>友情链接</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/admin/friendship">链接列表</a></li>
+                          <li><a  href="/admin/friendship/create">添加链接</a></li>
                           <li><a  href="panels.html">回收站</a></li>
                       </ul>
                   </li>
@@ -298,3 +311,5 @@
   </script>
   </body>
 </html>
+
+

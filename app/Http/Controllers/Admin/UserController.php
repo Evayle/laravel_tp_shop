@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogPost;
+
 use App\Model\Admin\tp_admin_users;
 use App\Model\Admin\tp_admin_user_infos;
 use Hash;
 use DB;
+
 
 class UserController extends Controller
 {
@@ -17,6 +19,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
 
@@ -31,7 +34,7 @@ class UserController extends Controller
         ->paginate($count);
 
         return view('admin.users.index',['data'=>$tp_data,'i'=>$i,'request'=>$request->all() or ""]);
-    }
+            }
 
     /**
      * Show the form for creating a new resource.
@@ -51,6 +54,7 @@ class UserController extends Controller
      */
     public function store(StoreBlogPost $request)
     {
+
         /*开启事务   DB::beginTransaction();
         提交事务    DB::commit()
         回滚事务   DB::rollBack()*/
@@ -99,6 +103,27 @@ class UserController extends Controller
             }
 
 
+
+
+            //接收数据
+
+           $data = $request->except(['_token','admin_repassword']);
+           dump($data);
+            //创建文件对象
+
+            $file = $request->file('admin_avatar');
+            if (!$file == null) {
+                //移动文件路径
+
+            $res = $file->storeAs('home_avatar',time().rand(5,10).'.jpg');
+            dump($res);
+
+            //admin_avatar是一个用户头像的用了软连接过去了puiblic
+
+            } else {
+                $res = 'yonghutouxaing.jpg';//如果用户没有头像，就直接用系统的统一头像；
+                    dump($res);
+            }
     }
 
     /**
@@ -107,9 +132,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
 
+    public function show( StoreBlogPost$id)
+    {
+        echo 1;
     }
 
     /**
@@ -120,10 +146,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
             $data = tp_admin_users::find($id);
             $date = tp_admin_user_infos::where('uid',$id)->first();
 
             return view('admin.users.edit',['data'=>$data,'date'=>$date]);
+
 
     }
 
@@ -136,6 +164,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         DB::beginTransaction();
         //修改
         $data_edit = tp_admin_users::find($id);
@@ -154,6 +183,10 @@ class UserController extends Controller
             DB::rollBack();
             return back()->with('error','修改失败');
         }
+        //
+
+        //
+
     }
 
     /**
@@ -175,6 +208,7 @@ class UserController extends Controller
              DB::rollBack();
              return redirect($_SERVER['HTTP_REFERER'])->with('success','删除失败');;
         }
+
 
 
 

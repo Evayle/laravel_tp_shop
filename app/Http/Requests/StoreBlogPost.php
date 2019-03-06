@@ -23,6 +23,7 @@ class StoreBlogPost extends FormRequest
      */
     public function rules()
     {
+
         return [
         'admin_name' => 'required|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
         'admin_password' => 'required|regex:/^[\w]{6,18}$/',
@@ -31,6 +32,9 @@ class StoreBlogPost extends FormRequest
         'admin_phon' => 'required',
         'admin_itn' => 'required',
         'admin_permission' => 'required',
+        'fs_name' =>'required',
+        'fs_link' =>'required',
+        'fs_note' =>'required',
         ];
     }
 
@@ -47,6 +51,9 @@ class StoreBlogPost extends FormRequest
             'admin_phon.required' => '电话必填',
             'admin_itn.required' => '个人介绍必填',
             'admin_permission.required' => '个人权限必填',
+            'fs_name.required' => '请填写链接名字',
+            'fs_link.required' => '请填写链接网址',
+            'fs_note.required' => '请填写公司名称',
         ];
     }
 }
