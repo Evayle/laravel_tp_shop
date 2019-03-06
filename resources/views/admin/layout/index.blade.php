@@ -207,8 +207,6 @@
                   <p class="centered"><a href="profile.html"><img src="/bg/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered" id="h5">{{session('admin_login.2')}}</h5>
 
-
-
                   <li class="mt">
                       <a class="active" href="/admin">
                           <i class="fa fa-dashboard"></i>
@@ -227,15 +225,30 @@
                           <li><a  href="panels.html">回收站</a></li>
                       </ul>
                   </li>
+                  <!-- 商品分类开始 -->
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>友情链接</span>
+                      <a href="#" >
+                          <i class="glyphicon glyphicon-align-left"></i>
+                          <span>分类管理</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="/admin/friendship">链接列表</a></li>
-                          <li><a  href="/admin/friendship/create">添加链接</a></li>
-                          <li><a  href="panels.html">回收站</a></li>
+                          <li><a  href="/admin/category">分类列表</a></li>
+                          <li><a  href="/admin/category/create">分类添加</a></li>
+                          <li><a  href="/admin/category/delete">回收站</a></li>
+                      </ul>
+                  </li>
+                  <!-- 商品分类结束 -->
+
+                  <!-- 商品管理开始 -->
+                  <li class="sub-menu">
+                      <a href="#" >
+                          <i class="glyphicon glyphicon-shopping-cart"></i>
+                          <span>商品管理</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/admin/goods">商品列表</a></li>
+                          <li><a  href="/admin/goods/create">商品添加</a></li>
+                          <li><a  href="/admin/goods/delete">回收站</a></li>
                       </ul>
                   </li>
               </ul>
@@ -311,5 +324,3 @@
   </script>
   </body>
 </html>
-
-

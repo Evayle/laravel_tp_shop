@@ -35,6 +35,7 @@ class StoreBlogPost extends FormRequest
         'fs_name' =>'required',
         'fs_link' =>'required',
         'fs_note' =>'required',
+
         ];
     }
 

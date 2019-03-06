@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/',function(){
 return view('home.index.index');
 });
@@ -41,6 +42,12 @@ Route::group(['middleware'=>'login'],function(){
     // Route::get('admin/friendship/setdata','Admin\FriendshipController@setdata');
     Route::resource('admin/friendship','Admin\FriendshipController');
 
+    // 后台分类管理
+    Route::get('admin/category/create/{id}','Admin\CategoryController@create');
+    Route::resource('admin/category','Admin\CategoryController');
+
+    // 后台商品管理
+    Route::resource('admin/goods','Admin\GoodsController');
 
 
 
@@ -55,11 +62,6 @@ Route::post('admin/deng','Admin\LoginController@deng');
 // 前台首页
 Route::get('home','Home\IndexController@index');
 Route::resource('home/shopcart','Home\ShopcartController');
-
-
-
-
-
 
 
 
