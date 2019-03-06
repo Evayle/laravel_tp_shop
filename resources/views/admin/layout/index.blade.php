@@ -40,7 +40,7 @@
       <!--header start-->
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="点击收起还原"></div>
               </div>
             <!--logo start-->
             <a href="index.html" class="logo"><b>富潮里管理系统</b></a>
@@ -208,7 +208,7 @@
                   <h5 class="centered">11当前的用户名11</h5>
 
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="/admin">
                           <i class="fa fa-dashboard"></i>
                           <span>主页信息</span>
                       </a>
