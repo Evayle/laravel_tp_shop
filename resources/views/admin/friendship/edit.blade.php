@@ -24,31 +24,35 @@
                 </ul>
             </div>
             @endif
-                      <form action="/admin/friendship" class="form-horizontal style-form" method="post" enctype="multipart/form-data">
-                        
+                      <form action="/admin/friendship/{{ $data['id'] }}" class="form-horizontal style-form" method="post" enctype="multipart/form-data">
+                        {{ method_field('PUT') }}
                        {{ csrf_field() }}
                           <div class="form-group">
                               <label class="col-sm-2 "><span class="user_add">链接名称</span></label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="fs_name" value="{{ old('fs_name') }}">
+                                  <input type="text" class="form-control" name="fs_name" value="{{ $data['fs_name'] }}">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"><span class="user_add">链接网址</span></label>
                               <div class="col-sm-10">
-                                  <input type="text"  class="form-control" placeholder="" name="fs_link" value="{{ old('fs_link') }}">
+                                  <input type="text"  class="form-control" placeholder="" name="fs_link" value="{{ $data['fs_link'] }}">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"><span class="user_add">公司名称</span></label>
                               <div class="col-sm-10">
-                                  <input type="text"  class="form-control" placeholder="" name="fs_note" value="{{ old('fs_note') }}">
+                                  <input type="text"  class="form-control" placeholder="" name="fs_note" value="{{ $data['fs_note'] }}">
                               </div>
                           </div>
                           <div class="form-group">
+                              <!-- <h5 style="text-align: center;">注意:暂不支持修改图片</h5> -->
+                                
                               <label class="col-sm-2 col-sm-2 control-label"><span class="user_add">链接图片</span></label>
                               <div class="col-sm-10">
-                                <input type="file" id="file" name="fs_logo" value="{{ old('fs_logo') }}">
+                                <img src="/storage/{{ $data['fs_logo'] }}" alt="" id="img0" width="100" /><br>
+                                <span id="info"></span><br>
+                                <input type="file" name="fs_logo" id="pic" class="file0" value="{{ $data['fs_logo'] }}"/>
                               </div>
                           </div>
                           <div class="form-group">

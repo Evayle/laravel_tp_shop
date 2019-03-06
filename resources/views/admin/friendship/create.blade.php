@@ -48,7 +48,9 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"><span class="user_add">链接图片</span></label>
                               <div class="col-sm-10">
-                                <input type="file" id="file" name="fs_logo" value="{{ old('fs_logo') }}">
+                                <img src="" alt="" id="img0" width="100" /><br>
+                                <span id="info"></span><br>
+                                <input type="file" name="fs_logo" id="pic" class="file0" value="{{ old('fs_logo') }}"/>
                               </div>
                           </div>
                           <div class="form-group">

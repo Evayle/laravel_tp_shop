@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogPost;
 use App\Models\tp_friendship;
 use DB;
+use Illuminate\Support\Facades\Storage;
+
 class friendshipController extends Controller
 {
     /**
@@ -17,7 +19,7 @@ class friendshipController extends Controller
     public function index(Request $request)
     {
         //
-        $list = $request->all();
+        // $list = $request->all();
         $tp_fs = new tp_friendship;
         $count = $request->input('count',5);
         $search = $request->input('search','');
@@ -47,10 +49,10 @@ class friendshipController extends Controller
     {
         //
         $data = $request->except('_token');
-        // dump($data);
 
+        //获取文件对象
         $file = $request->file('fs_logo');
-        // dd($data['fs_logo']);
+
         if ($file == true) {
             // 获取文件后缀
             $ext = $file->extension();
@@ -104,9 +106,10 @@ class friendshipController extends Controller
     {
         //
         $tp_fs = new tp_friendship;
-        $data = $tp_fs->first();
-        dd($data);
-        return view('admin/friendship/edit');
+        $data = $tp_fs->find($id);
+        // dd($data);
+        // echo $data['fs_logo'];
+        return view('admin/friendship/edit', ['data'=>$data]);
     }
 
     /**
@@ -119,6 +122,42 @@ class friendshipController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+
+        $data = new tp_friendship;
+        $upd = $data->find($id);
+
+        /*$bool = Storage::delete($upd['fs_logo']);
+        // $bool = Storage::delete('/storage/'.$upd['fs_logo']);
+        echo '/storage/'.$upd['fs_logo'];
+        dd($bool);*/
+
+        $file = $request->file('fs_logo');
+        if ($file == true) {
+            // 获取文件后缀
+            $ext = $file->extension();
+            // 拼接文件名
+            $logo_name = time().rand(100,999).'.'.$ext;
+            // 执行文件上传
+            $res = $file->storeAs('public',$logo_name);
+            if ($res == false) {
+                return back()->with('error','图片添加失败');
+            }
+            // dd('暂停');
+        }else{
+            return back()->with('error','图片添加');
+        }
+        $upd->fs_name = $request->input('fs_name','');
+        $upd->fs_link = $request->input('fs_link','');
+        $upd->fs_note = $request->input('fs_note','');
+        $upd->fs_logo = $logo_name;
+        $bool = $upd->save();
+        if ($bool == true) {
+            return redirect('admin/friendship')->with('success','修改成功');
+        }else{
+            return redirect('admin/friendship')->with('error','修改失败');
+        }
+
     }
 
     /**
@@ -130,5 +169,14 @@ class friendshipController extends Controller
     public function destroy($id)
     {
         //
+        // dd($id);
+        $tp_fs = new tp_friendship;
+        $res = $tp_fs::destroy($id);
+        // dd($res);
+        if ($res) {
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        }else{
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
     }
 }

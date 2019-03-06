@@ -53,13 +53,20 @@
                                     @endif
                                     <td class="numeric">{{ $v->created_at }}</td>
                                     <td class="numeric">{{ $v->updated_at }}</td>
-                                    <td><a href="/admin/friendship/{{ $v->id }}/edit" class="btn btn-warning">修改</a><a href="/admin/friendship/delete" class="btn btn-danger">删除</a></td>
+                                    <td>
+                                      <a href="/admin/friendship/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
+                                      <form action="/admin/friendship/{{ $v->id }}" method="post" style="display: inline-block;">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <input type="submit" value="删除" class="btn btn-danger">
+                                      </form>
+                                    </td>
                                 </tr>
                               @endforeach
                               </tbody>
                           </table>
                           <div class="text-right">
-                          {{ $data->links() }}
+                          {{ $data->appends($request)->links() }}
                           </div>
                           </section>
                   </div><!-- /content-panel -->
@@ -67,7 +74,9 @@
         </div><!-- /row -->
           </section>
       </section>
-
+      <script>
+        
+      </script>
 
 
 @endsection
