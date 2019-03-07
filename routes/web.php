@@ -17,14 +17,6 @@ Route::get('/',function(){
 return view('home.index.index');
 });
 
-//主页路由.验证登录(测试)
-Route::get('admin/info',function(){
-    // 存储一条数据至 Session 中...
-    session(['admin_login' => null]);
-    return 123;
-
-});
-
 
 //后台登录页面
 Route::get('admin/login','Admin\LoginController@index')->name('login');
@@ -63,7 +55,7 @@ Route::post('admin/deng','Admin\LoginController@deng');
 Route::get('home','Home\IndexController@index');
 Route::resource('home/shopcart','Home\ShopcartController');
 
-
+Route::any('home/login','Home\LoginController@login');
 
 
 

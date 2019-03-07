@@ -34,11 +34,39 @@
 			</div>
 		</div>
 	</div>
-	@section('content')
+	<!-- 搜索栏 -->
+	<div class="top-search">
+		<div class="inner">
+			<div class="search-box">
+				<form class="input-group">
+					<input placeholder="Ta们都在搜U袋网" type="text">
+					<span class="input-group-btn">
+						<button type="button">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</button>
+					</span>
+				</form>
+				<p class="help-block text-nowrap">
+					<a href="">连衣裙</a>
+					<a href="">裤</a>
+					<a href="">衬衫</a>
+					<a href="">T恤</a>
+					<a href="">女包</a>
+					<a href="">家居服</a>
+					<a href="">2017新款</a>
+				</p>
+			</div>
+			<div class="cart-box">
+				<a href="udai_shopcart.html" class="cart-but">
+					<i class="iconfont icon-shopcart cr fz16"></i> 购物车 0 件
+				</a>
+			</div>
+		</div>
+	</div>
+	@section('index')
 
 
 	@show()
-
 	<!-- 右侧菜单 -->
 	<div class="right-nav">
 		<ul class="r-with-gotop">
@@ -49,7 +77,7 @@
 				</a>
 			</li>
 			<li class="r-toolbar-item">
-				<a href="/home/shopcart" class="r-item-hd">
+				<a href="udai_shopcart.html" class="r-item-hd">
 					<i class="iconfont icon-cart" data-badge="10"></i>
 					<div class="r-tip__box"><span class="r-tip-text">购物车</span></div>
 				</a>
@@ -78,6 +106,9 @@
 			</li>
 		</ul>
 	</div>
+
+
+
 	<!-- 底部信息 -->
 	<div class="footer">
 		<div class="footer-tags">

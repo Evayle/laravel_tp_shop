@@ -1,123 +1,5 @@
-<<<<<<< HEAD
-<!doctype html>
-<html >
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-
-
-            <div class="content">
-                <div class="title m-b-md">
-                    商城
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
-=======
 @extends('home.layout.index')
-@section('content')
-	<!-- 搜索栏 -->
-	<div class="top-search">
-		<div class="inner">
-			<a class="logo" href="index.html"><img src="/homes/images/icons/logo.jpg" alt="U袋网" class="cover"></a>
-			<div class="search-box">
-				<form class="input-group">
-					<input placeholder="Ta们都在搜U袋网" type="text">
-					<span class="input-group-btn">
-						<button type="button">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-						</button>
-					</span>
-				</form>
-				<p class="help-block text-nowrap">
-					<a href="">连衣裙</a>
-					<a href="">裤</a>
-					<a href="">衬衫</a>
-					<a href="">T恤</a>
-					<a href="">女包</a>
-					<a href="">家居服</a>
-					<a href="">2017新款</a>
-				</p>
-			</div>
-			<div class="cart-box">
-				<a href="/home/shopcart" class="cart-but">
-					<i class="iconfont icon-shopcart cr fz16"></i> 购物车 0 件
-				</a>
-			</div>
-		</div>
-	</div>
+@section('index')
 	<!-- 首页导航栏 -->
 	<div class="top-nav bg3">
 		<div class="nav-box inner">
@@ -1075,7 +957,7 @@
 		</section>
 	</div>
 	<script>
-		$(document).ready(function(){ 
+		$(document).ready(function(){
 			// 顶部banner轮播
 			var banner_swiper = new Swiper('.banner-box', {
 				autoplayDisableOnInteraction : false,
@@ -1098,5 +980,4 @@
 			$('.to-top').toTop({position:false});
 		});
 	</script>
-@endsection()
->>>>>>> origin/xujw
+	@endsection
